@@ -1,13 +1,128 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+/* ========== Global Variables ========== */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Light Theme */
+  --light-body: #ffffff;
+  --light-text: #213547;
+  --light-bg: #f9f9f9;
+  --light-primary: #747bff;
+
+  /* Dark Theme */
+  --dark-body: #242424;
+  --dark-text: rgba(255, 255, 255, 0.87);
+  --dark-bg: #1a1a1a;
+  --dark-primary: #646cff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* ========== Theme Binding ========== */
+[data-theme="light"] {
+  --body: var(--light-body);
+  --text: var(--light-text);
+  --background: var(--light-bg);
+  --primary: var(--light-primary);
+}
+
+[data-theme="dark"] {
+  --body: var(--dark-body);
+  --text: var(--dark-text);
+  --background: var(--dark-bg);
+  --primary: var(--dark-primary);
+}
+
+/* ========== Base Styles ========== */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--body);
+  color: var(--text);
+  transition: all 0.25s linear;
+}
+
+a {
+  font-weight: 500;
+  color: var(--light-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--dark-primary);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+/* ========== Layout Styles ========== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--primary);
+  color: var(--text);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-controls button,
+.menu-btn {
+  background: none;
+  color: inherit;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: var(--background);
+  transition: left 0.3s ease-in-out;
+  z-index: 99;
+  padding-top: 60px;
+  color: var(--text);
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.close-btn {
+  background: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin: 0.5rem;
+}
+
+.main-content {
+  margin-top: 60px;
+  padding: 20px;
 }

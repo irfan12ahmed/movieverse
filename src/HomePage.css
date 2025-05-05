@@ -1,0 +1,339 @@
+/* HomePage.css - Final Combined and Innovative Design */
+
+/* === Base Styles === */
+.home-container {
+    --primary-color: #e50914;
+    --primary-light: #ff4d4d;
+    --primary-dark: #b2070f;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 0;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    transition: var(--transition);
+}
+
+.home-container.light {
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --card-bg: #ffffff;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* === Theme Toggle === */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.3);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.4);
+}
+
+/* === Hero Section === */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1925&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.4), rgba(0, 0, 0, 0.8));
+    animation: gradientShift 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: rgba(229, 9, 20, 0.3);
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Search Bar === */
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+.search-bar:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+}
+
+.search-icon {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.search-bar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    padding: 0.5rem 0;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+/* === Mood Filters === */
+.mood-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.mood-filter {
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.mood-filter:hover,
+.mood-filter.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* === TopMovieRating Section === */
+.top-movie-section {
+    margin: 4rem auto;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    max-width: 1100px;
+}
+
+.top-movie-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--primary-light);
+    text-align: center;
+}
+
+.top-movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.2rem;
+}
+
+.movie-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: var(--transition);
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.movie-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.movie-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* === Sidebar === */
+.sidebar {
+    width: 250px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding: 1rem;
+    box-shadow: var(--card-shadow);
+    transform: translateX(-100%);
+    transition: var(--transition);
+    z-index: 999;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.sidebar li:hover {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        top: auto;
+        transform: translateY(100%);
+    }
+
+    .sidebar.open {
+        transform: translateY(0);
+    }
+
+    .top-movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
